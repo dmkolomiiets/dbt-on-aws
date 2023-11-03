@@ -1,0 +1,107 @@
+version: 2
+
+sources:
+  - name: fdr_2121
+    tables:
+      - name: inspec_allergy2
+        columns:
+          - name: center_id
+            data_type: int
+            description: "ID for the data source from which the record was generated, usually an EHR instance"
+          - name: allergy_id
+            data_type: varchar(255)
+            description: "ID of the allergy row"
+          - name: patient_id
+            data_type: varchar(255)
+            description: "Patient ID for the patient whose allergy is recorded"
+          - name: encounter_id
+            data_type: varchar(255)
+            description: "Encounter ID for the encounter at which the allergy is record, where applicable"
+          - name: type
+            data_type: varchar(255)
+            description: "Category of the substance to which the patient has an allergy or intolerance, as specified in the clinical data source"
+          - name: description
+            data_type: varchar(255)
+            description: "Name of the allergy in free text, e.g. Amoxicillin, Codeine, Egg, or Latex. Indicates the allergen, i.e. what the patient is allergic to. May contain the value No Known Allergies. For drug allergies it should roughly match the description for the drug specified using NDC or RxNorm code"
+          - name: reaction
+            data_type: varchar(255)
+            description: "Describes the patient's reaction to the allergen. A free-text field that may contain one or more words or phrases such as 'rash', 'hives', or 'anaphylaxis'"
+          - name: ndc_code
+            data_type: varchar(50)
+            description: "NDC code for the drug allergen. At least one of NDC or RxNorm code should be populated for all drug allergies"
+          - name: onset_date
+            data_type: datetime
+            description: "Date and time recorded for allergy onset"
+          - name: resolved_date
+            data_type: datetime
+            description: "Date and time as of when the allergy or intolerance ended, if the patient indicates that it has ended. NULL indicates that the allergy or intolerance is still an ongoing issue"
+          - name: create_timestamp
+            data_type: datetime
+            description: "Date and time when the record was first created"
+          - name: delete_ind
+            data_type: varchar(1)
+            description: "Indicates if the record is marked as deleted, either because it was deleted in the clinical data source, or because data transformation logic changed in a way that makes the record no longer valid. Values are 'Y'/'1' (deleted) and 'N'/'0' (not deleted)"
+          - name: modify_timestamp
+            data_type: datetime
+            description: "Date and time when the record was last updated"
+          - name: loaded_from_file
+            data_type: varchar(255)
+            description: "Name of the file from which this particular record was first loaded, usually a CSV file"
+          - name: severity
+            data_type: varchar(255)
+            description: "Describes severity of allergy, e.g. Mild, Moderate, Severe, or Fatal"
+          - name: RxNorm
+            data_type: varchar(10)
+            description: "RxNorm code for the drug allergen. At least one of NDC or RxNorm code should be populated for all drug allergies"
+  - name: imdb_analytics
+    tables:
+      - name: genre_titles
+        columns:
+          - name: center_id
+            data_type: int
+            description: "ID for the data source from which the record was generated, usually an EHR instance"
+          - name: allergy_id
+            data_type: varchar(255)
+            description: "ID of the allergy row"
+          - name: patient_id
+            data_type: varchar(255)
+            description: "Patient ID for the patient whose allergy is recorded"
+          - name: encounter_id
+            data_type: varchar(255)
+            description: "Encounter ID for the encounter at which the allergy is record, where applicable"
+          - name: type
+            data_type: varchar(255)
+            description: "Category of the substance to which the patient has an allergy or intolerance, as specified in the clinical data source"
+          - name: description
+            data_type: varchar(255)
+            description: "Name of the allergy in free text, e.g. Amoxicillin, Codeine, Egg, or Latex. Indicates the allergen, i.e. what the patient is allergic to. May contain the value No Known Allergies. For drug allergies it should roughly match the description for the drug specified using NDC or RxNorm code"
+          - name: reaction
+            data_type: varchar(255)
+            description: "Describes the patient's reaction to the allergen. A free-text field that may contain one or more words or phrases such as 'rash', 'hives', or 'anaphylaxis'"
+          - name: ndc_code
+            data_type: varchar(50)
+            description: "NDC code for the drug allergen. At least one of NDC or RxNorm code should be populated for all drug allergies"
+          - name: onset_date
+            data_type: datetime
+            description: "Date and time recorded for allergy onset"
+          - name: resolved_date
+            data_type: datetime
+            description: "Date and time as of when the allergy or intolerance ended, if the patient indicates that it has ended. NULL indicates that the allergy or intolerance is still an ongoing issue"
+          - name: create_timestamp
+            data_type: datetime
+            description: "Date and time when the record was first created"
+          - name: delete_ind
+            data_type: varchar(1)
+            description: "Indicates if the record is marked as deleted, either because it was deleted in the clinical data source, or because data transformation logic changed in a way that makes the record no longer valid. Values are 'Y'/'1' (deleted) and 'N'/'0' (not deleted)"
+          - name: modify_timestamp
+            data_type: datetime
+            description: "Date and time when the record was last updated"
+          - name: loaded_from_file
+            data_type: varchar(255)
+            description: "Name of the file from which this particular record was first loaded, usually a CSV file"
+          - name: severity
+            data_type: varchar(255)
+            description: "Describes severity of allergy, e.g. Mild, Moderate, Severe, or Fatal"
+          - name: RxNorm
+            data_type: varchar(10)
+            description: "RxNorm code for the drug allergen. At least one of NDC or RxNorm code should be populated for all drug allergies"

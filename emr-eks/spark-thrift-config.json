@@ -1,0 +1,21 @@
+{
+  "applicationConfiguration": [
+    {
+      "classification": "spark-defaults",
+      "properties": {
+        "spark.kubernetes.file.upload.path": "s3://emr-eks-default-683131678078-us-east-1/logs/",
+        "spark.jars": "/usr/lib/hudi/hudi-spark3.3-bundle_2.12-0.11.1-amzn-0.jar:/usr/lib/hudi/hudi-utilities-bundle.jar:/usr/lib/hudi/hudi-spark-bundle.jar:/usr/lib/spark/external/lib/spark-avro.jar",
+        "spark.serializer": "org.apache.spark.serializer.KryoSerializer",
+        "spark.sql.hive.convertMetastoreParquet": "false",
+        "spark.dynamicAllocation.enabled":"false",
+        "spark.sql.extensions": "org.apache.spark.sql.hudi.HoodieSparkSessionExtension",
+        "spark.kubernetes.executor.deleteOnTermination": "true",
+        "spark.kubernetes.driver.podTemplateFile":"s3://emr-eks-default-683131678078-us-east-1/resources/templates/driver-template.yaml",
+        "spark.kubernetes.executor.podTemplateFile":"s3://emr-eks-default-683131678078-us-east-1/resources/templates/executor-template.yaml",
+        "spark.hadoop.hive.metastore.client.factory.class":"com.amazonaws.glue.catalog.metastore.AWSGlueDataCatalogHiveClientFactory",
+        "spark.executor.extraClassPath": "/usr/lib/spark/external/lib/*:/usr/lib/hudi/*:/usr/lib/spark/conf:/etc/hadoop/conf:/usr/lib/hadoop-lzo/lib/*:/usr/lib/hadoop/*:/usr/share/aws/aws-java-sdk/*:/usr/share/aws/emr/emrfs/conf:/usr/share/aws/emr/emrfs/lib/*:/usr/share/aws/emr/emrfs/auxlib/*:/usr/share/aws/emr/goodies/lib/*:/usr/share/aws/emr/security/conf:/usr/share/aws/emr/security/lib/*:/usr/share/aws/hmclient/lib/*:/usr/share/java/Hive-JSON-Serde/*:/usr/share/aws/sagemaker-spark-sdk/lib/*:/usr/share/aws/emr/s3select/lib/*:/docker/usr/lib/hadoop-lzo/lib/*:/docker/usr/lib/hadoop/*:/docker/usr/share/aws/aws-java-sdk/*:/docker/usr/share/aws/emr/emrfs/conf:/docker/usr/share/aws/emr/emrfs/lib/*:/docker/usr/share/aws/emr/emrfs/auxlib/*:/docker/usr/share/aws/emr/goodies/lib/*:/docker/usr/share/aws/emr/security/conf:/docker/usr/share/aws/emr/security/lib/*:/docker/usr/share/aws/hmclient/lib/*:/docker/usr/share/java/Hive-JSON-Serde/*:/docker/usr/share/aws/sagemaker-spark-sdk/lib/*:/docker/usr/share/aws/emr/s3select/lib/*:/usr/lib/spark/jars/*"
+      }
+    }
+  ]
+}
+

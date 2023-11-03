@@ -1,0 +1,28 @@
+apiVersion: sparkoperator.k8s.io/v1beta2
+kind: SparkApplication
+metadata:
+  name: spark-thrift-server
+  namespace: analytics
+spec:
+  type: Custom
+  sparkVersion: "3.1.1"
+  mode: cluster
+  image: "755674844232.dkr.ecr.us-east-1.amazonaws.com/fluentd/emr-6.8.0:latest"
+  mainClass: org.apache.spark.sql.hive.thriftserver.HiveThriftServer2
+  arguments: ["--conf", "spark.sql.hive.thriftServer.singleSession=true"]
+  sparkConf:
+    "spark.kubernetes.container.image.pullPolicy": "IfNotPresent"
+    "spark.kubernetes.authenticate.driver.serviceAccountName": "emr-spark-operator"
+  driver:
+    cores: 1
+    coreLimit: "1200m"
+    memory: "512m"
+    labels:
+      version: 3.1.1
+    serviceAccount: emr-spark-operator
+  executor:
+    cores: 1
+    instances: 1
+    memory: "512m"
+    labels:
+      version: 3.1.1
